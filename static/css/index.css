@@ -752,19 +752,18 @@ a:focus {
 
 
 
-/* Acknowledgment logos share an optical height and wrap on narrow screens. */
+/* Compact acknowledgment logos stay in one proportional row. */
 .ack-logos {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem 2rem;
-  margin: 0 0 1.5rem;
+  gap: clamp(0.6rem, 2vw, 1.25rem);
+  max-width: 42rem;
+  margin: 0 auto 1.5rem;
 }
+.ack-logos a { min-width: 0; }
 .ack-logos img { width: 100%; height: auto; display: block; }
-.ack-eosc { flex: 0 1 390px; }
-.ack-pcss { flex: 0 1 170px; }
+.ack-eosc { flex: 0 1 276px; }
+.ack-pcss { flex: 0 1 121px; }
 .ack-text { max-width: 48rem; margin: 0 auto; }
-@media screen and (min-width: 769px) {
-  .ack-logos { flex-wrap: nowrap; }
-}
