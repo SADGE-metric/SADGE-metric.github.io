@@ -751,3 +751,20 @@ a:focus {
 
 
 
+
+/* Acknowledgment logos share an optical height and wrap on narrow screens. */
+.ack-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem 2rem;
+  margin: 0 0 1.5rem;
+}
+.ack-logos img { width: 100%; height: auto; display: block; }
+.ack-eosc { flex: 0 1 390px; }
+.ack-pcss { flex: 0 1 170px; }
+.ack-text { max-width: 48rem; margin: 0 auto; }
+@media screen and (min-width: 769px) {
+  .ack-logos { flex-wrap: nowrap; }
+}
