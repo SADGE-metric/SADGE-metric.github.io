@@ -6,8 +6,8 @@
 
   <!-- Primary Meta Tags -->
   <meta name="title" content="Auditing Metrics for Synthetic Data Utility: A Cross-Domain Study of Appearance and Geometry">
-  <meta name="description" content="A quantitative similarity metric that predicts the downstream performance of synthetic image datasets without model training, by fusing appearance and geometry signals.">
-  <meta name="keywords" content="synthetic data, domain gap, sim-to-real, appearance similarity, geometric similarity, downstream prediction, FID, DINOv3, MASt3R, SigLIP2, computer vision">
+  <meta name="description" content="An audit of appearance- and geometry-based image-similarity metrics as predictors of synthetic-to-real transfer across seven benchmark families, with SADGE, a calibrated diagnostic that combines both signals.">
+  <meta name="keywords" content="synthetic data, synthetic data utility, metric audit, domain gap, sim-to-real, appearance similarity, geometric correspondence, DINOv3, MASt3R, LoFTR, LPIPS, computer vision">
   <meta name="author" content="Patryk Bartkowiak, Dominik L. Michels, Sören Pirk, Wojtek Palubicki">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="SADGE Metric">
   <meta property="og:title" content="Auditing Metrics for Synthetic Data Utility: A Cross-Domain Study of Appearance and Geometry">
-  <meta property="og:description" content="A quantitative similarity metric that predicts the downstream performance of synthetic image datasets without model training, by fusing appearance and geometry signals.">
+  <meta property="og:description" content="An audit of appearance- and geometry-based image-similarity metrics as predictors of synthetic-to-real transfer across seven benchmark families, with SADGE, a calibrated diagnostic that combines both signals.">
   <meta property="og:url" content="https://sadge-metric.github.io/">
   <meta property="og:image" content="https://sadge-metric.github.io/static/images/social_preview.png">
   <meta property="og:image:width" content="1200">
@@ -32,7 +32,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Auditing Metrics for Synthetic Data Utility: A Cross-Domain Study of Appearance and Geometry">
-  <meta name="twitter:description" content="A quantitative similarity metric that predicts the downstream performance of synthetic image datasets without model training, by fusing appearance and geometry signals.">
+  <meta name="twitter:description" content="An audit of appearance- and geometry-based image-similarity metrics as predictors of synthetic-to-real transfer across seven benchmark families, with SADGE, a calibrated diagnostic that combines both signals.">
   <meta name="twitter:image" content="https://sadge-metric.github.io/static/images/social_preview.png">
   <meta name="twitter:image:alt" content="Auditing Metrics for Synthetic Data Utility: A Cross-Domain Study of Appearance and Geometry">
 
@@ -42,6 +42,7 @@
   <meta name="citation_author" content="Michels, Dominik">
   <meta name="citation_author" content="Pirk, Sören">
   <meta name="citation_author" content="Palubicki, Wojtek">
+  <meta name="citation_conference_title" content="IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)">
   <meta name="citation_publication_date" content="2026">
   <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2605.22467.pdf">
   <meta name="citation_arxiv_id" content="2605.22467">
@@ -104,7 +105,7 @@
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "Auditing Metrics for Synthetic Data Utility: A Cross-Domain Study of Appearance and Geometry",
-    "description": "A quantitative similarity metric that predicts the downstream performance of synthetic image datasets without model training, by fusing appearance and geometry signals.",
+    "description": "An audit of appearance- and geometry-based image-similarity metrics as predictors of synthetic-to-real transfer across seven benchmark families, with SADGE, a calibrated diagnostic that combines both signals.",
     "author": [
       {
         "@type": "Person",
@@ -267,6 +268,10 @@
             <span class="author-block"><sup>1</sup>Adam Mickiewicz University, <sup>2</sup>KAUST, <sup>3</sup>Kiel University, <sup>4</sup>GreenMatterAI</span>
           </div>
 
+          <div class="is-size-5 publication-authors" style="margin-top: 0.5rem;">
+            <span class="author-block">WACV 2027</span>
+          </div>
+
                   <div class="column has-text-centered">
                     <div class="publication-links">
                       <span class="link-block">
@@ -305,9 +310,9 @@
 <section class="hero teaser">
   <div class="container is-fullhd">
     <div class="hero-body">
-      <img src="static/images/sadge-diagram.png" alt="SADGE method diagram: real and synthetic image pairs are scored along an Appearance Similarity branch (pretrained vision encoder, cosine similarity) and a Geometry Consistency branch (learned matcher, correspondence-based verification); the two z-score-standardized signals are fused into a single SADGE score." style="width:100%; height:auto;" />
+      <img src="static/images/sadge-diagram.png" alt="SADGE method diagram: real and synthetic image pairs are scored along an Appearance Similarity branch (pretrained vision encoder, cosine similarity) and a Geometry Consistency branch (learned matcher, correspondence-based verification); the two z-score-standardized signals are benchmarked independently and, as a secondary analysis, fused into a single SADGE score." style="width:100%; height:auto;" />
       <p class="subtitle has-text-centered" style="font-size: 0.875rem; margin-top: 1.25rem;">
-        SADGE predicts the utility of a synthetic image dataset for downstream visual recognition by jointly modeling <em>appearance similarity</em> and <em>geometry consistency</em> between real and synthetic images. For each real image, comparison is performed either using an aligned real&ndash;synthetic pair or by retrieving the best synthetic match from a candidate subset. After dataset-level aggregation, the appearance and geometry scores are fused with a constrained bilinear interaction model to produce the final SADGE score.
+        Our evaluation measures the association between synthetic-data utility and two complementary signal families: <em>appearance similarity</em> and <em>geometry consistency</em> between real and synthetic images. For each real image, comparison is performed either using an aligned real&ndash;synthetic pair or by retrieving the best synthetic match from a candidate subset. We benchmark each signal independently; as a secondary analysis, a constrained bilinear interaction called SADGE probes whether the two families contain complementary information on the assembled benchmark.
       </p>
     </div>
   </div>
@@ -322,10 +327,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We propose <em>SADGE</em>, a quantitative similarity metric that predicts the performance of synthetic image datasets for common computer vision tasks without downstream model training. Estimating whether a synthetic dataset will lead to a model that performs well on real-world data remains a bottleneck in model development. Existing evaluation metrics (e.g., PSNR, FID, CLIP) primarily measure semantic alignment between real and synthetic images (Appearance Similarity Score). Less commonly, structural similarity between images is considered to assess the domain gap (Geometric Similarity Score). However, to the best of our knowledge there exists no studies that evaluate which similarity metric is the best downstream predictor for a given synthetic dataset. In this paper, we show over a wide variety of different synthetic datasets and downstream tasks that neither appearance nor geometry alone can reliably predict downstream performance; rather, it is their non-linear interplay that dictates synthetic data utility.
+            Image-similarity metrics are widely used to assess synthetic data, yet it remains unclear whether they predict how effectively synthetic training data transfer to real images. We present a common evaluation protocol for appearance- and structure-oriented proxies and apply it to seven synthetic-to-real benchmark families, 21 dataset variants, and 87,880 image-pair comparisons spanning object detection, semantic segmentation, and 6D pose estimation. No standalone metric is consistently strongest: appearance metrics are more informative in settings dominated by rendering, texture, or illumination differences, whereas correspondence-based metrics provide stronger evidence when pose, viewpoint, or spatial structure varies. These results show that the two signal families capture distinct aspects of synthetic-to-real compatibility.
           </p>
           <p>
-            Specifically, we measure how commonly used Appearance and Geometric Similarity metrics (e.g., CLIP, PSNR, LPIPS, SSIM) computed between synthetic and real images correlate with downstream performance in object detection, semantic segmentation, and pose estimation. Across five public synthetic-to-real benchmark families and 15 dataset-level variants (79k image pairs), SADGE achieves the strongest association with downstream transfer performance under both linear and rank-based criteria, reaching Pearson <em>r</em>&nbsp;=&nbsp;0.879 and Spearman <em>&rho;</em>&nbsp;=&nbsp;0.768 (<em>n</em>&nbsp;=&nbsp;15, approximate <em>p</em>&nbsp;=&nbsp;8.3&times;10<sup>&minus;4</sup>). We compute for each combination of geometry-based methods (SSIM, SuperPoints, MASt3R, LoFTR) and appearance-based approaches (FID, DINOv2, DINOv3, SigLIP2, SAM3, PSNR, CLIP, LPIPS) SADGE scores across all benchmark families. The best configuration is obtained by fusing DINOv3 appearance similarity with MASt3R geometric consistency through a constrained bilinear interaction, outperforming both the strongest geometry-only baseline (LoFTR, <em>&rho;</em>&nbsp;=&nbsp;0.582) and the strongest appearance-only baseline (PSNR, <em>&rho;</em>&nbsp;=&nbsp;0.536).
+            As a secondary analysis, we introduce <em>SADGE</em>, a transparent three-parameter interaction between DINOv3 appearance similarity and MASt3R correspondence. On the complete benchmark, SADGE reaches Pearson <em>r</em>&nbsp;=&nbsp;0.834 and Spearman <em>&rho;</em>&nbsp;=&nbsp;0.853, compared with <em>r</em>&nbsp;=&nbsp;0.585 and 0.545 for the strongest appearance- and structure-oriented standalone metrics. With the component pair fixed, repeated variant-level calibration yields median held-out correlations from 0.611 to 0.755, surpassing the strongest unfitted metric from five calibration variants onward. Under exhaustive family-disjoint calibration, median held-out correlation rises from 0.529 with two calibration families to 0.841 with five, although the wider dispersion and negative tail reveal substantial sensitivity to calibration composition. Together, the benchmark and held-out analyses support evaluating appearance and structural compatibility jointly, while positioning SADGE as a calibrated training-free diagnostic for downstream validation.
           </p>
         </div>
       </div>
@@ -475,6 +480,7 @@ End paper poster -->
       archivePrefix={arXiv},
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2605.22467},
+      note={To appear at WACV 2027}
 }</code></pre>
   </div>
 </section>
