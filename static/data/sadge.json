@@ -1,0 +1,539 @@
+{
+ "source": "paper/tables (benchmark_variants.csv, calibration.json, scalars_heldout*.json)",
+ "kind": {
+  "SADGE": "sadge",
+  "MASt3R": "structure",
+  "LoFTR": "structure",
+  "SuperPoint+LightGlue": "structure",
+  "SSIM": "structure",
+  "LPIPS": "appearance",
+  "PSNR": "appearance",
+  "FID": "appearance",
+  "CLIP": "appearance",
+  "SigLIP": "appearance",
+  "SAM3": "appearance",
+  "DINOv2": "appearance",
+  "DINOv3": "appearance"
+ },
+ "panels": [
+  {
+   "id": "all",
+   "label": "All 21 variants",
+   "stat": "r",
+   "n": 21,
+   "scores": {
+    "SADGE": 0.834,
+    "MASt3R": 0.531,
+    "LoFTR": 0.545,
+    "SuperPoint+LightGlue": 0.417,
+    "SSIM": 0.321,
+    "LPIPS": 0.585,
+    "PSNR": 0.484,
+    "FID": -0.008,
+    "CLIP": 0.164,
+    "SigLIP": 0.129,
+    "SAM3": 0.244,
+    "DINOv2": 0.187,
+    "DINOv3": 0.232
+   }
+  },
+  {
+   "id": "all-rank",
+   "label": "All 21 variants, rank",
+   "stat": "rho",
+   "n": 21,
+   "scores": {
+    "SADGE": 0.853,
+    "MASt3R": 0.443,
+    "LoFTR": 0.484,
+    "SuperPoint+LightGlue": 0.325,
+    "SSIM": 0.295,
+    "LPIPS": 0.505,
+    "PSNR": 0.462,
+    "FID": 0.074,
+    "CLIP": 0.114,
+    "SigLIP": 0.173,
+    "SAM3": 0.443,
+    "DINOv2": 0.365,
+    "DINOv3": 0.253
+   }
+  },
+  {
+   "id": "excl-asd",
+   "label": "Without ASD",
+   "stat": "r",
+   "n": 19,
+   "scores": {
+    "SADGE": 0.849,
+    "MASt3R": 0.533,
+    "LoFTR": 0.554,
+    "SuperPoint+LightGlue": 0.416,
+    "SSIM": 0.322,
+    "LPIPS": 0.637,
+    "PSNR": 0.496,
+    "FID": 0.045,
+    "CLIP": 0.213,
+    "SigLIP": 0.177,
+    "SAM3": 0.288,
+    "DINOv2": 0.214,
+    "DINOv3": 0.262
+   }
+  },
+  {
+   "id": "excl-dimo",
+   "label": "Without DIMO",
+   "stat": "r",
+   "n": 17,
+   "scores": {
+    "SADGE": 0.795,
+    "MASt3R": -0.022,
+    "LoFTR": 0.16,
+    "SuperPoint+LightGlue": 0.023,
+    "SSIM": 0.338,
+    "LPIPS": 0.271,
+    "PSNR": 0.262,
+    "FID": -0.212,
+    "CLIP": 0.073,
+    "SigLIP": -0.018,
+    "SAM3": -0.004,
+    "DINOv2": -0.063,
+    "DINOv3": 0.034
+   }
+  },
+  {
+   "id": "excl-polyp-etis",
+   "label": "Without Polyp-ETIS",
+   "stat": "r",
+   "n": 18,
+   "scores": {
+    "SADGE": 0.836,
+    "MASt3R": 0.517,
+    "LoFTR": 0.491,
+    "SuperPoint+LightGlue": 0.35,
+    "SSIM": 0.63,
+    "LPIPS": 0.635,
+    "PSNR": 0.578,
+    "FID": -0.023,
+    "CLIP": 0.499,
+    "SigLIP": 0.378,
+    "SAM3": 0.481,
+    "DINOv2": 0.364,
+    "DINOv3": 0.501
+   }
+  },
+  {
+   "id": "excl-polyp-kvasir",
+   "label": "Without Polyp-Kvasir",
+   "stat": "r",
+   "n": 18,
+   "scores": {
+    "SADGE": 0.862,
+    "MASt3R": 0.672,
+    "LoFTR": 0.676,
+    "SuperPoint+LightGlue": 0.556,
+    "SSIM": 0.078,
+    "LPIPS": 0.589,
+    "PSNR": 0.405,
+    "FID": -0.056,
+    "CLIP": -0.024,
+    "SigLIP": -0.046,
+    "SAM3": 0.139,
+    "DINOv2": 0.071,
+    "DINOv3": 0.075
+   }
+  },
+  {
+   "id": "excl-rareplanes",
+   "label": "Without RarePlanes",
+   "stat": "r",
+   "n": 20,
+   "scores": {
+    "SADGE": 0.83,
+    "MASt3R": 0.521,
+    "LoFTR": 0.515,
+    "SuperPoint+LightGlue": 0.394,
+    "SSIM": 0.269,
+    "LPIPS": 0.574,
+    "PSNR": 0.584,
+    "FID": 0.021,
+    "CLIP": 0.157,
+    "SigLIP": 0.125,
+    "SAM3": 0.163,
+    "DINOv2": 0.231,
+    "DINOv3": 0.264
+   }
+  },
+  {
+   "id": "excl-tud-l",
+   "label": "Without TUD-L",
+   "stat": "r",
+   "n": 19,
+   "scores": {
+    "SADGE": 0.835,
+    "MASt3R": 0.568,
+    "LoFTR": 0.607,
+    "SuperPoint+LightGlue": 0.452,
+    "SSIM": 0.371,
+    "LPIPS": 0.683,
+    "PSNR": 0.506,
+    "FID": 0.164,
+    "CLIP": 0.227,
+    "SigLIP": 0.277,
+    "SAM3": 0.421,
+    "DINOv2": 0.45,
+    "DINOv3": 0.367
+   }
+  },
+  {
+   "id": "excl-vkitti",
+   "label": "Without VKITTI2",
+   "stat": "r",
+   "n": 15,
+   "scores": {
+    "SADGE": 0.841,
+    "MASt3R": 0.559,
+    "LoFTR": 0.633,
+    "SuperPoint+LightGlue": 0.526,
+    "SSIM": 0.228,
+    "LPIPS": 0.537,
+    "PSNR": 0.449,
+    "FID": 0.017,
+    "CLIP": -0.057,
+    "SigLIP": 0.006,
+    "SAM3": 0.218,
+    "DINOv2": 0.086,
+    "DINOv3": 0.054
+   }
+  }
+ ],
+ "points": [
+  {
+   "family": "ASD",
+   "variant": "cotton",
+   "task": "semantic segmentation",
+   "metric": "mIoU",
+   "y": 59.7,
+   "sadge": -0.3892,
+   "mast3r": 4.5894,
+   "dinov3": 0.6666
+  },
+  {
+   "family": "ASD",
+   "variant": "domain_adapted",
+   "task": "semantic segmentation",
+   "metric": "mIoU",
+   "y": 44.61,
+   "sadge": -0.446,
+   "mast3r": 4.7568,
+   "dinov3": 0.7465
+  },
+  {
+   "family": "DIMO",
+   "variant": "randpose_randlight",
+   "task": "object detection",
+   "metric": "COCO AP",
+   "y": 69.4,
+   "sadge": 0.5977,
+   "mast3r": 8.9179,
+   "dinov3": 0.7306
+  },
+  {
+   "family": "DIMO",
+   "variant": "randpose_reallight",
+   "task": "object detection",
+   "metric": "COCO AP",
+   "y": 65.8,
+   "sadge": 0.6307,
+   "mast3r": 8.8308,
+   "dinov3": 0.7483
+  },
+  {
+   "family": "DIMO",
+   "variant": "realpose_randlight",
+   "task": "object detection",
+   "metric": "COCO AP",
+   "y": 75.4,
+   "sadge": 1.3132,
+   "mast3r": 10.1692,
+   "dinov3": 0.8221
+  },
+  {
+   "family": "DIMO",
+   "variant": "realpose_reallight",
+   "task": "object detection",
+   "metric": "COCO AP",
+   "y": 78.5,
+   "sadge": 1.3344,
+   "mast3r": 10.6452,
+   "dinov3": 0.7936
+  },
+  {
+   "family": "Polyp-ETIS",
+   "variant": "ldm",
+   "task": "polyp segmentation",
+   "metric": "IoU",
+   "y": 36.64,
+   "sadge": -0.5438,
+   "mast3r": 4.7213,
+   "dinov3": 0.825
+  },
+  {
+   "family": "Polyp-ETIS",
+   "variant": "polyp-ddpm",
+   "task": "polyp segmentation",
+   "metric": "IoU",
+   "y": 52.95,
+   "sadge": -0.3988,
+   "mast3r": 5.0858,
+   "dinov3": 0.7987
+  },
+  {
+   "family": "Polyp-ETIS",
+   "variant": "singan-seg",
+   "task": "polyp segmentation",
+   "metric": "IoU",
+   "y": 32.09,
+   "sadge": -0.5022,
+   "mast3r": 4.7435,
+   "dinov3": 0.7942
+  },
+  {
+   "family": "Polyp-Kvasir",
+   "variant": "ldm",
+   "task": "polyp segmentation",
+   "metric": "IoU",
+   "y": 66.94,
+   "sadge": 0.3709,
+   "mast3r": 7.1909,
+   "dinov3": 0.873
+  },
+  {
+   "family": "Polyp-Kvasir",
+   "variant": "polyp-ddpm",
+   "task": "polyp segmentation",
+   "metric": "IoU",
+   "y": 71.56,
+   "sadge": 0.2346,
+   "mast3r": 6.8933,
+   "dinov3": 0.8551
+  },
+  {
+   "family": "Polyp-Kvasir",
+   "variant": "singan-seg",
+   "task": "polyp segmentation",
+   "metric": "IoU",
+   "y": 68.28,
+   "sadge": -0.0225,
+   "mast3r": 6.2305,
+   "dinov3": 0.8331
+  },
+  {
+   "family": "RarePlanes",
+   "variant": "test",
+   "task": "object detection",
+   "metric": "COCO mAP",
+   "y": 39.46,
+   "sadge": -0.443,
+   "mast3r": 4.5068,
+   "dinov3": 0.6954
+  },
+  {
+   "family": "TUD-L",
+   "variant": "train_bad_render_backgrounds",
+   "task": "6D pose estimation",
+   "metric": "AR_Core",
+   "y": 49.5,
+   "sadge": -0.0043,
+   "mast3r": 5.2452,
+   "dinov3": 0.2167
+  },
+  {
+   "family": "TUD-L",
+   "variant": "train_good_render",
+   "task": "6D pose estimation",
+   "metric": "AR_Core",
+   "y": 68.5,
+   "sadge": 0.3692,
+   "mast3r": 4.0058,
+   "dinov3": 0.2017
+  },
+  {
+   "family": "VKITTI2",
+   "variant": "clone",
+   "task": "semantic segmentation",
+   "metric": "mAP",
+   "y": 58.224,
+   "sadge": -0.3004,
+   "mast3r": 8.9071,
+   "dinov3": 0.4467
+  },
+  {
+   "family": "VKITTI2",
+   "variant": "fog",
+   "task": "semantic segmentation",
+   "metric": "mAP",
+   "y": 43.588,
+   "sadge": -0.4857,
+   "mast3r": 8.4024,
+   "dinov3": 0.3681
+  },
+  {
+   "family": "VKITTI2",
+   "variant": "morning",
+   "task": "semantic segmentation",
+   "metric": "mAP",
+   "y": 42.726,
+   "sadge": -0.2702,
+   "mast3r": 8.5182,
+   "dinov3": 0.4515
+  },
+  {
+   "family": "VKITTI2",
+   "variant": "overcast",
+   "task": "semantic segmentation",
+   "metric": "mAP",
+   "y": 58.308,
+   "sadge": -0.3278,
+   "mast3r": 8.5194,
+   "dinov3": 0.4306
+  },
+  {
+   "family": "VKITTI2",
+   "variant": "rain",
+   "task": "semantic segmentation",
+   "metric": "mAP",
+   "y": 46.138,
+   "sadge": -0.4977,
+   "mast3r": 8.4446,
+   "dinov3": 0.3656
+  },
+  {
+   "family": "VKITTI2",
+   "variant": "sunset",
+   "task": "semantic segmentation",
+   "metric": "mAP",
+   "y": 49.006,
+   "sadge": -0.2734,
+   "mast3r": 8.196,
+   "dinov3": 0.445
+  }
+ ],
+ "scatter_r": {
+  "sadge": 0.834,
+  "mast3r": 0.457,
+  "dinov3": 0.232
+ },
+ "heldout_variant": [
+  {
+   "m": 3,
+   "median": 0.611,
+   "q25": 0.439,
+   "q75": 0.768,
+   "lpips": 0.585,
+   "loftr": 0.531
+  },
+  {
+   "m": 4,
+   "median": 0.541,
+   "q25": 0.414,
+   "q75": 0.766,
+   "lpips": 0.586,
+   "loftr": 0.53
+  },
+  {
+   "m": 5,
+   "median": 0.654,
+   "q25": 0.427,
+   "q75": 0.794,
+   "lpips": 0.588,
+   "loftr": 0.529
+  },
+  {
+   "m": 6,
+   "median": 0.691,
+   "q25": 0.455,
+   "q75": 0.798,
+   "lpips": 0.589,
+   "loftr": 0.53
+  },
+  {
+   "m": 7,
+   "median": 0.719,
+   "q25": 0.473,
+   "q75": 0.802,
+   "lpips": 0.597,
+   "loftr": 0.529
+  },
+  {
+   "m": 8,
+   "median": 0.735,
+   "q25": 0.533,
+   "q75": 0.809,
+   "lpips": 0.596,
+   "loftr": 0.535
+  },
+  {
+   "m": 9,
+   "median": 0.745,
+   "q25": 0.593,
+   "q75": 0.812,
+   "lpips": 0.597,
+   "loftr": 0.534
+  },
+  {
+   "m": 10,
+   "median": 0.755,
+   "q25": 0.612,
+   "q75": 0.823,
+   "lpips": 0.601,
+   "loftr": 0.538
+  }
+ ],
+ "heldout_family": [
+  {
+   "f": 2,
+   "median": 0.529,
+   "q25": 0.285,
+   "q75": 0.807,
+   "min": -0.539,
+   "max": 0.863,
+   "splits": 21,
+   "lpips": 0.595,
+   "loftr": 0.559
+  },
+  {
+   "f": 3,
+   "median": 0.652,
+   "q25": 0.364,
+   "q75": 0.83,
+   "min": -0.647,
+   "max": 0.926,
+   "splits": 35,
+   "lpips": 0.581,
+   "loftr": 0.592
+  },
+  {
+   "f": 4,
+   "median": 0.766,
+   "q25": 0.128,
+   "q75": 0.857,
+   "min": -0.709,
+   "max": 0.946,
+   "splits": 35,
+   "lpips": 0.541,
+   "loftr": 0.561
+  },
+  {
+   "f": 5,
+   "median": 0.841,
+   "q25": 0.247,
+   "q75": 0.917,
+   "min": -0.736,
+   "max": 0.976,
+   "splits": 21,
+   "lpips": 0.577,
+   "loftr": 0.603
+  }
+ ],
+ "in_sample_r": 0.834
+}

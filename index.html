@@ -98,6 +98,7 @@
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
+  <script defer src="static/js/figures.js"></script>
 
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
@@ -310,6 +311,19 @@
 </section>
 <!-- End teaser figure -->
 
+<!-- At a glance -->
+<section class="section viz-root" style="padding-top: 0.5rem; padding-bottom: 2rem;">
+  <div class="container">
+    <div class="stat-strip">
+      <div class="stat-tile"><span class="stat-value">7</span><span class="stat-label">benchmark families</span></div>
+      <div class="stat-tile"><span class="stat-value">21</span><span class="stat-label">synthetic dataset variants</span></div>
+      <div class="stat-tile"><span class="stat-value">87,880</span><span class="stat-label">real&ndash;synthetic image pairs</span></div>
+      <div class="stat-tile"><span class="stat-value">12</span><span class="stat-label">standalone metrics audited</span></div>
+    </div>
+  </div>
+</section>
+<!-- End at a glance -->
+
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
@@ -329,6 +343,58 @@
   </div>
 </section>
 <!-- End paper abstract -->
+
+<!-- Benchmark -->
+<section class="section viz-root">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">The benchmark</h2>
+    <p class="section-lead">Seven public synthetic-to-real families, each with downstream results reported under one training and evaluation recipe, so variants within a family differ only in the synthetic source.</p>
+  </div>
+  <figure class="paper-figure">
+    <img src="static/images/benchmark-families.jpg" alt="Two example images from each of the seven benchmark families: DIMO, RarePlanes, TUD-L, VKITTI2, ASD, Polyp-Kvasir and Polyp-ETIS." loading="lazy" width="2000" height="462">
+    <figcaption>DIMO (a), RarePlanes (b), TUD-L (c), VKITTI2 (d), ASD (e), Polyp-Kvasir (f) and Polyp-ETIS (g): industrial, aerial, indoor, driving, agricultural and medical imagery.</figcaption>
+  </figure>
+</section>
+<!-- End benchmark -->
+
+<!-- No single metric -->
+<section class="section hero is-light viz-root">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">No standalone metric is consistently strongest</h2>
+    <p class="section-lead">Correlation of each metric with downstream performance. Drop one family at a time and the best standalone metric changes, between appearance and structure.</p>
+  </div>
+  <div class="viz-card" id="fig-ranking">
+    <div class="viz-title">Correlation with downstream performance</div>
+    <div class="viz-subtitle">One bar per metric, sorted; pick the benchmark composition.</div>
+  </div>
+</section>
+<!-- End no single metric -->
+
+<!-- SADGE scatter -->
+<section class="section viz-root">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Appearance and geometry together</h2>
+    <p class="section-lead">SADGE is a three-parameter interaction between DINOv3 appearance similarity and MASt3R correspondence. Neither component alone orders the 21 variants as well as the two combined.</p>
+  </div>
+  <div class="viz-card" id="fig-scatter">
+    <div class="viz-title">Score against downstream performance</div>
+    <div class="viz-subtitle">Switch the x-axis between SADGE and its two components; highlight a family to find its variants.</div>
+  </div>
+</section>
+<!-- End SADGE scatter -->
+
+<!-- Held-out -->
+<section class="section hero is-light viz-root">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">How far calibration carries</h2>
+    <p class="section-lead">SADGE needs calibration data with known downstream results. Fitted on part of the benchmark and scored on the rest, it overtakes the unfitted metrics, with wide spread when whole families are held out.</p>
+  </div>
+  <div class="viz-card" id="fig-heldout">
+    <div class="viz-title">Held-out correlation by calibration budget</div>
+    <div class="viz-subtitle">Hover for the numbers at each budget.</div>
+  </div>
+</section>
+<!-- End held-out -->
 
 
 <!-- Image carousel — hidden until results are ready
