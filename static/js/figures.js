@@ -142,7 +142,7 @@
     html('summary', null, 'Show as a table', details);
     var table = html('table', 'table is-narrow is-striped', null, details);
 
-    var current = null;
+    var current = null, drawnOnce = false;
     function update(id) {
       var p = data.panels.filter(function (q) { return q.id === id; })[0];
       var statName = p.stat === 'rho' ? 'Spearman ρ' : 'Pearson r';
@@ -156,7 +156,8 @@
         rows[m].rank = i;
         rows[m].g.style.transform = 'translateY(' + (top + i * rowH) + 'px)';
       });
-      tween(450, function (t) {
+      // the first draw is immediate; only switching panels animates
+      tween(drawnOnce ? 450 : 0, function (t) {
         metrics.forEach(function (m) {
           var v = from[m] + (p.scores[m] - from[m]) * t;
           rows[m].v = v;
@@ -168,6 +169,7 @@
           rows[m].val.textContent = fmt(v);
         });
       });
+      drawnOnce = true;
       var best = order.filter(function (m) { return data.kind[m] !== 'sadge'; })[0];
       insight.innerHTML = 'Strongest standalone metric here: <strong>' + best + '</strong> (' + KIND_NAME[data.kind[best]] +
         ', ' + statName + ' = ' + fmt(p.scores[best]) + '). Switch panels to watch it change.';
@@ -409,7 +411,10 @@
       chart(card, data, Math.max(280, w));
     }
     render();
-    window.addEventListener('resize', function () { clearTimeout(timer); timer = setTimeout(render, 150); });
+    // Watch the card itself, not the window: a layout change without a window
+    // resize (a viewport switch, a font load, a scrollbar) must redraw too.
+    if (window.ResizeObserver) new ResizeObserver(function () { clearTimeout(timer); timer = setTimeout(render, 100); }).observe(card);
+    else window.addEventListener('resize', function () { clearTimeout(timer); timer = setTimeout(render, 150); });
   }
 
   function init() {
