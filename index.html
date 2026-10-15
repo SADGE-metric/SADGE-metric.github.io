@@ -44,7 +44,7 @@
   <meta name="citation_author" content="Palubicki, Wojtek">
   <meta name="citation_conference_title" content="IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)">
   <meta name="citation_publication_date" content="2026">
-  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2605.22467.pdf">
+  <meta name="citation_pdf_url" content="https://sadge-metric.github.io/static/pdfs/wacv-2027.pdf">
   <meta name="citation_arxiv_id" content="2605.22467">
 
   <!-- Google Search Console verification -->
@@ -288,16 +288,21 @@
                         <span>arXiv</span>
                         </a>
                       </span>
+                      <span class="link-block">
+                        <a href="static/pdfs/wacv-2027.pdf" target="_blank" rel="noopener noreferrer"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                        <span>Paper</span>
+                        </a>
+                      </span>
+                      <span class="link-block">
+                        <a href="static/pdfs/wacv-2027-supplement.pdf" target="_blank" rel="noopener noreferrer"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                        <span>Supplementary</span>
+                        </a>
+                      </span>
                     </div>
-                    <!--
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                      <span>Supplementary</span>
-                      </a>
-                    </span>
-                    -->
                   </div>
         </div>
       </div>
@@ -327,10 +332,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Image-similarity metrics are widely used to assess synthetic data, yet it remains unclear whether they predict how effectively synthetic training data transfer to real images. We present a common evaluation protocol for appearance- and structure-oriented proxies and apply it to seven synthetic-to-real benchmark families, 21 dataset variants, and 87,880 image-pair comparisons spanning object detection, semantic segmentation, and 6D pose estimation. No standalone metric is consistently strongest: appearance metrics are more informative in settings dominated by rendering, texture, or illumination differences, whereas correspondence-based metrics provide stronger evidence when pose, viewpoint, or spatial structure varies. These results show that the two signal families capture distinct aspects of synthetic-to-real compatibility.
+            Image-similarity metrics are widely used to assess synthetic data, yet it remains unclear whether they predict how effectively synthetic training data transfer to real images. We present a common evaluation protocol for appearance- and structure-oriented proxies and apply it to seven benchmark families, 21 dataset variants, and 87,880 image-pair comparisons spanning object detection, semantic segmentation, and 6D pose estimation. No standalone metric is consistently strongest: appearance metrics are more informative in settings dominated by rendering, texture, or illumination differences, whereas correspondence-based metrics provide stronger evidence when pose, viewpoint, or spatial structure varies. These results show that the two signal families capture distinct aspects of synthetic-to-real compatibility.
           </p>
           <p>
-            As a secondary analysis, we introduce <em>SADGE</em>, a transparent three-parameter interaction between DINOv3 appearance similarity and MASt3R correspondence. On the complete benchmark, SADGE reaches Pearson <em>r</em>&nbsp;=&nbsp;0.834 and Spearman <em>&rho;</em>&nbsp;=&nbsp;0.853, compared with <em>r</em>&nbsp;=&nbsp;0.585 and 0.545 for the strongest appearance- and structure-oriented standalone metrics. With the component pair fixed, repeated variant-level calibration yields median held-out correlations from 0.611 to 0.755, surpassing the strongest unfitted metric from five calibration variants onward. Under exhaustive family-disjoint calibration, median held-out correlation rises from 0.529 with two calibration families to 0.841 with five, although the wider dispersion and negative tail reveal substantial sensitivity to calibration composition. Together, the benchmark and held-out analyses support evaluating appearance and structural compatibility jointly, while positioning SADGE as a calibrated training-free diagnostic for downstream validation.
+            As a secondary analysis, we introduce SADGE, a transparent three-parameter interaction between DINOv3 appearance similarity and MASt3R correspondence. When fitted and evaluated on the complete benchmark, SADGE reaches Pearson <em>r</em>&nbsp;=&nbsp;0.834 and Spearman <em>&rho;</em>&nbsp;=&nbsp;0.853, compared with <em>r</em>&nbsp;=&nbsp;0.585 and 0.545 for the strongest appearance- and structure-oriented standalone metrics. Keeping DINOv3 and MASt3R fixed, we repeatedly fit SADGE on subsets of variants and evaluate it on the remaining variants. Median held-out Pearson correlation increases from 0.611 with three calibration variants to 0.755 with ten, exceeding the strongest unfitted metric from five calibration variants onward. Under exhaustive family-disjoint calibration, median held-out correlation rises from 0.529 with two calibration families to 0.841 with five, although the wider dispersion and negative tail reveal substantial sensitivity to calibration composition. Together, these analyses support evaluating appearance and structural compatibility jointly. SADGE requires calibration on known downstream results; scoring additional datasets then requires no downstream training.
           </p>
         </div>
       </div>
